@@ -1,0 +1,76 @@
+/* Estilos generales para el contenedor del diálogo */
+:host {
+  display: block;
+  padding: 20px; /* Agrega un padding general al contenedor */
+}
+
+/* Estilos para el contenedor del formulario */
+form {
+  display: flex;
+  flex-direction: column; /* Organiza los elementos verticalmente */
+  gap: 20px; /* Agrega espacio entre elementos del formulario */
+  width: 100%;
+  max-width: 500px; /* Limita el ancho del formulario */
+}
+
+/* Estilos para el contenedor de la entrada de archivos */
+.file-upload-container {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.file-upload-container label {
+  margin-right: 10px;
+  white-space: nowrap; /* Evita que el texto del botón se corte si es muy largo */
+  overflow: hidden; /* Asegura que el texto no se desborde de la etiqueta */
+  text-overflow: ellipsis;
+}
+
+.file-upload-container span {
+  margin-left: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-grow: 1; /* Permite que el nombre del archivo se expanda */
+}
+
+/* Estilos para los botones de acción del diálogo */
+.mat-dialog-actions {
+  display: flex;
+  justify-content: flex-end; /* Alinea los botones a la derecha */
+  margin-top: 20px; /* Agrega un poco de margen superior */
+}
+
+/* Estilo para botones primarios */
+.mat-raised-button.mat-primary{
+  background-color: #3f51b5; /* Azul */
+  color: white;
+}
+
+.mat-raised-button:not(.mat-primary) {
+  background-color: #e0e0e0; /* Gris */
+  color: black;
+}
+
+/* Espaciado entre botones */
+.mat-dialog-actions button {
+  margin-left: 8px;
+}
+
+/* Estilos adicionales para un input de archivo con un borde más claro */
+.mat-form-field-appearance-fill .mat-form-field-flex {
+border: 1px solid #ccc;
+border-radius: 4px;
+}
+
+/* Estilos para el mat-label que usa el input type file */
+.file-upload-container label .mat-button-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.file-upload-container label mat-icon {
+  margin-right: 8px;
+}

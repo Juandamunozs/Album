@@ -1,0 +1,42 @@
+/* Estilos generales para el Navbar */
+.navbar {
+    background-color: #3f51b5; 
+    color: white;  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+  }
+  
+  .navbar .logo a {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .nav-links ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .nav-links ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  
+  .nav-links ul li a:hover {
+    text-decoration: underline;
+    color: #ffeb3b;
+  }
+  
+
+  .navbar.scrolled {
+    background-color: #283593; 
+    transition: background-color 0.3s ease-in-out;
+  }
+  
