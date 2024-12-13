@@ -1,42 +1,88 @@
-/* Estilos generales para el Navbar */
+/* Estilo para la barra de navegación */
 .navbar {
-    background-color: #3f51b5; 
-    color: white;  
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-  }
-  
-  .navbar .logo a {
-    font-size: 24px;
-    font-weight: bold;
-    color: white;
-    text-decoration: none;
-  }
-  
-  .nav-links ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 20px;
-  }
-  
-  .nav-links ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-  }
-  
-  .nav-links ul li a:hover {
-    text-decoration: underline;
-    color: #ffeb3b;
-  }
-  
+  background: linear-gradient(to right, #0066cc, #33ccff); /* Degradado azul */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
 
-  .navbar.scrolled {
-    background-color: #283593; 
-    transition: background-color 0.3s ease-in-out;
+/* Estilo para el logo */
+.navbar .logo a {
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+  letter-spacing: 2px;
+}
+
+/* Estilo para la navegación */
+.navbar .nav-links {
+  display: flex;
+  align-items: center;
+}
+
+/* Estilo para los elementos de la lista */
+.navbar .nav-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 20px; /* Espacio entre los botones */
+}
+
+.navbar .nav-links li {
+  display: inline-block;
+}
+
+/* Estilo para los botones */
+.navbar .nav-links button {
+  background-color: #ff7f50; /* Color de fondo naranja */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.navbar .nav-links button:hover {
+  background-color: #ff5722; /* Color naranja más oscuro al pasar el ratón */
+  transform: scale(1.05); /* Ligera ampliación para efecto de hover */
+}
+
+.navbar .nav-links button:focus {
+  outline: none;
+}
+
+/* Estilo para dispositivos pequeños (pantallas de móviles) */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
   }
-  
+
+  .navbar .nav-links {
+    width: 100%;
+    justify-content: flex-start;
+    margin-top: 10px;
+  }
+
+  .navbar .nav-links ul {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .navbar .nav-links li {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .navbar .nav-links button {
+    width: 100%;
+    text-align: left;
+  }
+}

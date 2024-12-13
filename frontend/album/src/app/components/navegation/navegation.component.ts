@@ -19,10 +19,15 @@ export class NavegationComponent {
     this.router.navigate(['/profile']);
   }
 
+  logoutProfile() {
+    localStorage.removeItem('token');
+    this.router.navigate(['/login']);
+  }
+
 
   goToUpload() {
     const dialogRef = this.dialog.open(uploadDialogComponent, {
-      data: { message: 'Sube tu archivo aquí' } // Initial message for the upload dialog
+      data: { message: 'Sube tu archivo aquí' } 
     });
 
     // Handle dialog result if needed

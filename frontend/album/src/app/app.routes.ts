@@ -4,10 +4,10 @@ import { HomeComponent } from './components/home/home.component';
 import { NavegationComponent } from './components/navegation/navegation.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent },  
   { path: 'navegation', component: NavegationComponent },  
-  { path: '**', redirectTo: '/home' },
+  { path: '**', redirectTo: '/login' },
 ];
 
