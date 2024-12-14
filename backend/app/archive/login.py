@@ -3,14 +3,7 @@ from typing import Optional
 from jose import jwt
 from pydantic import BaseModel
 import json
-
-# Clave secreta y algoritmo
-SECRET_KEY_SIGNATURE = "0b22b437c9a645aeb4f6e2a5b1ac528540778c5c0467554d26d643069bd4cfb4"
-ALGORITHM = "HS256"
-ACCESS_TOKEN_EXPIRE_MINUTES = 10
-
-# Cargar base de datos desde un archivo JSON
-DB_FILE = "db.json"
+from env.env import SECRET_KEY_SIGNATURE, ACCESS_TOKEN_EXPIRE_MINUTES, ALGORITHM, DB_FILE
 
 # Cargar usuarios desde el archivo JSON
 with open(DB_FILE, "r") as db_file:
@@ -21,6 +14,7 @@ class UserLogin(BaseModel):
     username: str
     password: str
 
+# Función para autenticar al usuario
 def authenticate_user(username: str, password: str):
     user = fake_users_db.get(username)
     if user and user["password"] == password:  

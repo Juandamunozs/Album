@@ -1,0 +1,12 @@
+backend/venv/pyvenv.cfg
+backend/venv/Scripts/Activate.ps1
+backend/venv/Scripts/uvicorn.exe
+backend/venv/Scripts/pythonw.exe
+backend/venv/Scripts/python.exe
+backend/venv/Scripts/pip3.exe
+backend/venv/Scripts/pip3.12.exe
+backend/venv/Scripts/pip.exe
+backend/venv/Scripts/activate
+backend/venv/Scripts/activate.bat
+backend/venv/Scripts/fastapi.exe
+backend/venv/Scripts/deactivate.bat

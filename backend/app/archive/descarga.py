@@ -1,10 +1,7 @@
-from pathlib import Path
 from fastapi import UploadFile
+from env.env import UPLOAD_DIRECTORY
 
-# Directorio donde se guardarán las imágenes
-UPLOAD_DIRECTORY = Path("image")
-UPLOAD_DIRECTORY.mkdir(parents=True, exist_ok=True)
-
+# Función para guardar el archivo en el sistema de archivos
 async def guardar_archivo(file: UploadFile) -> str:
     # Ruta completa del archivo
     file_path = UPLOAD_DIRECTORY / file.filename

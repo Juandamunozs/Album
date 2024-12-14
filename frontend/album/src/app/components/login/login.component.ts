@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FileUploadService } from '../../service/file-upload.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, HttpClientModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
@@ -21,6 +22,7 @@ export class LoginComponent {
     });
   }
 
+  // Método para iniciar sesión
   onLogin(): void {
     if (this.loginForm.valid) {
       this.fileUploadService.login(this.loginForm.get('username')?.value, this.loginForm.get('password')?.value).subscribe({

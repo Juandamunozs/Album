@@ -3,11 +3,12 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { uploadDialogComponent } from '../../dialog/upload/upload'; 
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-navegation',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, HttpClientModule],
   templateUrl: './navegation.component.html',
   styleUrls: ['./navegation.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -30,10 +31,8 @@ export class NavegationComponent {
       data: { message: 'Sube tu archivo aquí' } 
     });
 
-    // Handle dialog result if needed
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        // Handle successful upload or other actions based on result
         console.log('Upload completed:', result);
       } else {
         // Handle canceled upload
