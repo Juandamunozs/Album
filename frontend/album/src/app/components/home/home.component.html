@@ -1,19 +1,48 @@
 <app-navegation></app-navegation>
 
 <div class="container">
-  <div class="gallery-container">
-    <h1>Bienvenido al Álbum de Fotos</h1>
+  <!-- <div class="gallery-container">
     <div class="gallery">
       <div class="photo" *ngFor="let photo of photos">
-        <img [src]="photo" alt="Foto" />
-        <button (click)="eliminar(photo)">Eliminar </button>
+        <a [href]="photo" target="_blank">
+          <img [src]="photo" alt="Foto" class="photo-img" />
+        </a>
+        <div class="buttons-container">
+          <button (click)="ver(photo)" class="ver-btn">
+            <span class="material-icons">visibility</span> Ver
+          </button>
+          <button (click)="eliminar(photo)" class="eliminar-btn">
+            <span class="material-icons">delete</span> Eliminar
+          </button>
+        </div>
       </div>
     </div>
-  </div>
-  </div>
+  </div> -->
+
+
+    <div class="gallery-container">
+      <div class="gallery">
+        <div class="photo" *ngFor="let photoUrl of photoUrls">
+          <a [href]="photoUrl" target="_blank">
+            <img [src]="photoUrl" alt="Foto" class="photo-img" />
+          </a>
+          <div class="buttons-container">
+            <button (click)="ver(photoUrl)" class="ver-btn">
+              <span class="material-icons">visibility</span> Ver
+            </button>
+            <button (click)="eliminar(photoUrl)" class="eliminar-btn">
+              <span class="material-icons">delete</span> Eliminar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   
+  
+
   <ng-template #noImages>
-    <p>No se encontraron imágenes.</p>
+    <p class="no-images-text">No se encontraron imágenes.</p>
   </ng-template>
-  
-  
+</div>
+
+

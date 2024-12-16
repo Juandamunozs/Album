@@ -1,38 +1,116 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-image: url('../../assets/home_fondo.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
 .gallery-container {
-    text-align: center;
-    padding: 20px;
-  }
-  
+  text-align: center;
+  padding: 40px;
+}
+
+h1 {
+  font-size: 3rem;
+  color: #fff;
+  margin-bottom: 30px;
+  font-weight: bold;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  padding: 20px 0;
+}
+
+.photo {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  border: 3px solid transparent;
+  transition: border 0.3s ease;
+}
+
+.photo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  border-color: #ff7e5f; /* Color de borde para hover */
+}
+
+.photo-img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transition: opacity 0.3s ease;
+}
+
+.buttons-container {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 0.3s, opacity 0.3s ease;
+}
+
+.photo:hover .buttons-container {
+  visibility: visible;
+  opacity: 1;
+}
+
+.ver-btn,
+.eliminar-btn {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.ver-btn:hover,
+.eliminar-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.material-icons {
+  font-size: 20px;
+}
+
+.no-images-text {
+  font-size: 1.8rem;
+  color: #fff;
+  font-weight: 600;
+  margin-top: 50px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 768px) {
   h1 {
     font-size: 2rem;
-    color: #333;
-  }
-  
-  .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-    justify-items: center;
-  }
-  
-  .photo img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-  }
-  
-  .photo img:hover {
-    transform: scale(1.05);
   }
 
-  .container {
-    /* background-image: url('../../assets/home_fondo.jpg');
-    background-size: cover;       
-    background-position: center;   
-    background-repeat: no-repeat;  
-    height: 100vh;                 
-    margin: 0;      */
-    background-color: #a3c7e5;
+  .gallery {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
+}

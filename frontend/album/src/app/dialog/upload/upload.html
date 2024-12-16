@@ -1,21 +1,21 @@
 <h2 mat-dialog-title>Subir Imagen</h2>
 
 <form [formGroup]="uploadForm" (ngSubmit)="onSubmit()">
-
   <mat-form-field appearance="fill">
     <mat-label>Título</mat-label>
     <input matInput formControlName="title" placeholder="Ingrese el título" />
   </mat-form-field>
 
-    <!-- Este es el enfoque correcto -->
+  <!-- Este es el enfoque correcto -->
   <div class="file-upload-container">
     <label mat-raised-button for="file-input">
-        <mat-icon>check_circle</mat-icon>
+      <mat-icon>cloud_upload</mat-icon> <!-- Icono de carga -->
       Seleccionar Archivo
     </label>
     <input type="file" id="file-input" (change)="onFileSelected($event)" style="display: none;" accept="image/*" />
-     <span *ngIf="selectedFile">{{selectedFile.name}}</span>
+    <span *ngIf="selectedFile">{{ selectedFile.name }}</span>
   </div>
+
   <div mat-dialog-actions>
     <button mat-button (click)="cerrar()">Cancelar</button>
     <button mat-raised-button color="primary" type="submit" [disabled]="uploadForm.invalid || !selectedFile">Subir</button>

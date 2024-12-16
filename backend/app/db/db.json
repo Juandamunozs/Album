@@ -1,0 +1,12 @@
+{
+    "juandamunozs": {
+        "username": "juandamunozs",
+        "password": "contrasena",
+        "rol": "ADMIN"
+    },
+    "CV1112489257": {
+        "username": "CV1112489257",
+        "password": "PRUEBA1",
+         "rol": "USER"
+    }
+}

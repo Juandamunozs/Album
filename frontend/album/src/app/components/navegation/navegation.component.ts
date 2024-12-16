@@ -25,17 +25,15 @@ export class NavegationComponent {
     this.router.navigate(['/login']);
   }
 
-
   goToUpload() {
     const dialogRef = this.dialog.open(uploadDialogComponent, {
-      data: { message: 'Sube tu archivo aquí' } 
+      data: { message: 'Sube tu archivo aquí' }, disableClose: true
     });
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         console.log('Upload completed:', result);
       } else {
-        // Handle canceled upload
         console.log('Upload dialog closed');
       }
     });
