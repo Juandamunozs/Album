@@ -10,3 +10,4 @@ backend/venv/Scripts/activate
 backend/venv/Scripts/activate.bat
 backend/venv/Scripts/fastapi.exe
 backend/venv/Scripts/deactivate.bat
+backend/app/uploads/*

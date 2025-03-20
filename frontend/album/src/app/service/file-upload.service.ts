@@ -29,19 +29,19 @@ export class FileUploadService {
   uploadFile(formData: FormData): Observable<any> {
     const headers = this.getHeaders();
     console.log('Token enviado:', localStorage.getItem('token'));
-    return this.http.post(this.apiUrl + '/save', formData, { headers });
+    return this.http.post(this.apiUrl + '/apiV1/imagenes/save/', formData, { headers });
   }
 
   // Método para hacer login
   login(usuario: any, contrasena: any): Observable<any> {
     const loginData = { username: usuario, password: contrasena };
-    return this.http.post(this.apiUrl + '/login', loginData);
+    return this.http.post(this.apiUrl + '/apiV1/usuarios/login', loginData);
   }
 
   // Método para obtener las imágenes
   getImages(): Observable<{ images: string[] }> {
     const headers = this.getHeaders();
-    return this.http.get<{ images: string[] }>(this.apiUrl + '/list', { headers });
+    return this.http.get<{ images: string[] }>(this.apiUrl + '/apiV1/imagenes/list/', { headers });
   }
 
   getImageWithToken(imageUrl: string): Observable<Blob> {
@@ -58,6 +58,6 @@ export class FileUploadService {
   // Método para eliminar una imagen
   deleteImage(imageName: string): Observable<any> {
     const headers = this.getHeaders();
-    return this.http.delete(this.apiUrl + '/delete_image/' + imageName, { headers });
+    return this.http.delete(this.apiUrl + '/apiV1/imagenes/delete_image/{filename}' + imageName, { headers });
   }
 }

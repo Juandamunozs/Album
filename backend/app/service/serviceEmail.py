@@ -3,7 +3,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.image import MIMEImage
 from env.env import FROM_EMAIL, FROM_PASSWORD, SMTP_SERVER, SMTP_PORT
-from env.router import IMAGE_PATH
+from env.env import IMAGE_PATH
 
 def send_email(TO_EMAIL: str, SUBJECT: str, BODY: str, IMAGE_PATH: str = None):
 

@@ -2,11 +2,9 @@ from datetime import datetime, timedelta, timezone
 from typing import Optional
 from jose import jwt
 from fastapi.security import OAuth2PasswordBearer
-from pydantic import BaseModel
 import json
 from env.env import SECRET_KEY_SIGNATURE, ACCESS_TOKEN_EXPIRE_MINUTES, ALGORITHM
-from env.router import DB_FILE
-from service.email import servicio_correo
+from env.env import DB_FILE
 from fastapi import Depends, HTTPException
 from jose.exceptions import ExpiredSignatureError, JWTError
 
@@ -16,16 +14,6 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 # Cargar usuarios desde el archivo JSON
 with open(DB_FILE, "r") as db_file:
     fake_users_db = json.load(db_file)
-
-# Modelo para recibir las credenciales
-class UserLoginCreate(BaseModel):
-    username: str
-    password: str
-    rol: str
-
-class UserLogin(BaseModel):
-    username: str
-    password: str
 
 # Función para autenticar al usuario
 def authenticate_user(username: str, password: str):

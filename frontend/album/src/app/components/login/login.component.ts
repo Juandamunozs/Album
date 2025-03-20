@@ -22,23 +22,31 @@ export class LoginComponent {
     });
   }
 
-  // Método para iniciar sesión
   onLogin(): void {
     if (this.loginForm.valid) {
-      this.fileUploadService.login(this.loginForm.get('username')?.value, this.loginForm.get('password')?.value).subscribe({
-        next: (data) => {
-          localStorage.setItem('token', data.token);
-          console.log('el token es:', data);
-          this.router.navigate(['/home']);
-        },
-        error: (error) => {
-          console.error('Error during login:', error);
-          alert('Invalid credentials or server error');
-        },
-        complete: () => {
-          console.log('Login request completed');
-        }
-      });
+      this.fileUploadService
+        .login(
+          this.loginForm.get('username')?.value, 
+          this.loginForm.get('password')?.value
+        )
+        .subscribe({
+          next: (data) => {
+            // Extraer el token correctamente
+            const accessToken = data.access_token;  
+            localStorage.setItem('token', accessToken);
+            
+            console.log('Token recibido:', accessToken);
+            
+            this.router.navigate(['/home']);
+          },
+          error: (error) => {
+            console.error('Error durante el login:', error);
+            alert('Credenciales inválidas o error del servidor');
+          },
+          complete: () => {
+            console.log('Solicitud de login completada');
+          }
+        });
     }
   }
-}
+}  

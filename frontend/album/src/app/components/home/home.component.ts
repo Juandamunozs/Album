@@ -61,12 +61,11 @@ export class HomeComponent implements OnInit {
   loadImageUrls(): void {
     this.photos.forEach(photo => {
       
-      console.log(photo);
-      
       this.fileUploadService.getImageWithToken(photo).subscribe({
         next: (imageBlob) => {
           const imageUrl = URL.createObjectURL(imageBlob);
-          this.photoUrls.push(imageUrl); // Guarda el objeto URL
+          // this.photoUrls.push(imageUrl, photo); // Guarda el objeto URL
+          this.photoUrls.push(photo); 
         },
         error: (err) => {
           console.error('Error al obtener la imagen con token:', err);
@@ -84,6 +83,7 @@ export class HomeComponent implements OnInit {
   // Método para eliminar una imagen
   eliminar(photo: string): void {
     console.log('Eliminar:', photo);
+    console.log(this.photoUrls)
     const imageName = photo.split('/uploads/')[1];
 
     if (imageName) {

@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { FileUploadService } from '../../service/file-upload.service'; 
+// import { HomeComponent } from '../../components/home/home.component';
 
 @Component({
   selector: 'app-upload-dialog',
@@ -33,7 +34,8 @@ export class uploadDialogComponent {
     private fb: FormBuilder,
     public dialogRef: MatDialogRef<uploadDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: { message: string },
-    private fileUploadService: FileUploadService 
+    private fileUploadService: FileUploadService,
+    // private homeComponent: HomeComponent
   ) {
     this.uploadForm = this.fb.group({
       title: ['', [Validators.required]],
@@ -60,7 +62,7 @@ export class uploadDialogComponent {
       this.fileUploadService.uploadFile(formData).subscribe({
           next: (response: any) => {
             console.log('Archivo subido con éxito', response);
-            this.dialogRef.close({success: true, response: response}); 
+            this.dialogRef.close({success: true, response: response});
           },
           error: (error: any) => {
             console.error('Error al subir el archivo', error);
@@ -71,5 +73,6 @@ export class uploadDialogComponent {
     } else {
       console.log('Formulario invalido o no tiene archivo seleccionado');
     }
+    // this.homeComponent.loadImages()
   }
 }
